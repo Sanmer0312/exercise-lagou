@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>找工作-互联网招聘求职网-拉勾网</title>
+    <link rel="shortcut icon" href="img/favicon_faed927.ico" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+        text-decoration: none;
+      }
+      .pointer {
+        cursor: pointer;
+      }
+      header {
+        height: 50vh;
+        background-color: #00b38a;
+        position: relative;
+      }
+
+      /* @supports (-ms-ime-align: auto) {
+        header {
+          min-height: 45vh;
+        }
+      }
+   
+      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        header {
+          min-height: 45vh;
+        }
+      } */
+      header > a {
+        position: absolute;
+        left: 27.5%;
+        top: 20%;
+      }
+      header > a > img {
+        width: 72%;
+      }
+      main {
+        width: 700px;
+        background: #fff;
+        border: 1px solid #dce1e6;
+        border-radius: 2px;
+        padding: 6px;
+        padding-bottom: 60px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      /* 兼容edge */
+      @supports (-ms-ime-align: auto) {
+        main {
+          top: 45%;
+        }
+      }
+      /* 兼容ie */
+      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        main {
+          top: 45%;
+        }
+      }
+      main #WXlogin {
+        position: absolute;
+        top: 0;
+      }
+      main .left {
+        width: 60%;
+        float: left;
+      }
+      main #login {
+        width: 70%;
+        display: flex;
+        margin: 0 auto;
+        position: relative;
+      }
+      #QRcode {
+        width: 51px;
+        height: 51px;
+        background: url("img/qrcode-normal.svg") no-repeat;
+      }
+      #QRcode:hover {
+        background: url("img/qrcode-active.png") no-repeat;
+        background-size: 52px 52px;
+      }
+      #WXlogin {
+        position: absolute;
+        left: 120px;
+        transition: left 0.6s;
+      }
+      ul#login li {
+        width: 50%;
+        text-align: center;
+        padding-bottom: 15px;
+        color: #333;
+        border-bottom: 1px solid #ededed;
+      }
+      ul#login .active {
+        color: #00b38a;
+      }
+      .tabActive {
+        position: absolute;
+        width: 50%;
+        border-bottom: 1px solid #00b38a;
+        top: 36px;
+        left: 0%;
+        transition: left 0.3s;
+      }
+      .tabActive:before,
+      .tabActive:after {
+        content: "";
+        position: absolute;
+        z-index: 2;
+        width: 0;
+        height: 0;
+        border: 6px solid transparent;
+        border-bottom-color: #00b38a;
+        left: 50%;
+        top: -11px;
+        margin-left: -4px;
+      }
+      .tabActive:after {
+        z-index: 3;
+        border-bottom-color: #fff;
+        top: -10px;
+      }
+      main .input {
+        width: 70%;
+        margin: 0 auto;
+        margin-top: 25px;
+      }
+      .text {
+        border: none;
+        width: 100%;
+        margin-top: 10px;
+        font-size: 14px;
+        color: #333;
+        outline: none;
+      }
+      .yzmtab {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+      #yzm {
+        width: 116px;
+        position: absolute;
+        top: 9px;
+        left: 216px;
+      }
+      input::-webkit-input-placeholder {
+        /* WebKit browsers */
+        color: #b5b5b5;
+      }
+      input:-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+        color: #b5b5b5;
+      }
+      input::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+        color: #b5b5b5;
+      }
+      input:-ms-input-placeholder {
+        /* Internet Explorer 10+ */
+        color: #b5b5b5;
+      }
+      hr {
+        margin-top: 20px;
+        border: 0;
+        border-bottom: 1px solid #ededed;
+      }
+      .left a {
+        float: right;
+        color: #00b38a;
+        font-size: 14px;
+      }
+      .left .submit {
+        width: 100%;
+        font-size: 18px;
+        height: 46px;
+        background: #00b38a;
+        color: #fff;
+        outline: none;
+        border: none;
+        margin-top: 20px;
+      }
+      .or {
+        position: relative;
+        height: 322px;
+        border-left: 1px solid #ededed;
+        float: left;
+        margin-right: 42px;
+        top: 40px;
+      }
+      .or:after {
+        position: absolute;
+        content: "or";
+        padding: 2px;
+        background: #fff;
+        color: #d8d8d8;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .right {
+        float: left;
+        margin-top: 10%;
+      }
+      .right p {
+        margin: 44px 0 8px;
+        font-size: 14px;
+        color: #555;
+      }
+      .right a {
+        display: inline-block;
+        width: 88px;
+        color: #00b38a;
+        background: no-repeat url("img/icon-arrow-right.png") 68px 2px;
+      }
+      .right .img {
+        display: flex;
+        justify-content: center;
+        padding-top: 6px;
+      }
+      .img a {
+        display: inline-block;
+        margin-right: 26px;
+        width: 20px;
+        height: 16px;
+      }
+      #img1 {
+        background: url("img/icon-sina1.png") no-repeat;
+      }
+      #img2 {
+        background: url("img/icon-wechat.png") no-repeat;
+      }
+      #img3 {
+        background: url("img/icon-tencent.png") no-repeat;
+      }
+      #img4 {
+        background: url("img/icon-baidu.png") no-repeat;
+      }
+      #img1:hover {
+        background: url("img/icon-sina-hover.png") no-repeat;
+      }
+      #img2:hover {
+        background: url("img/icon-wechat-hover.png") no-repeat;
+      }
+      #img3:hover {
+        background: url("img/icon-tencent-hover.png") no-repeat;
+      }
+      #img4:hover {
+        background: url("img/icon-baidu-hover.png") no-repeat;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        //ul选择验证码或密码登录
+        let login = document.getElementById("login").children,
+          //选择验证码或密码登录后的输入框
+          input = document.getElementsByClassName("input"),
+          //ul的第一个li密码登录
+          loginA = { id: 0, content: login[0] },
+          //ul的第二个li验证码登录
+          loginB = { id: 1, content: login[1] },
+          //ul的第三个元素span
+          loginSpan = login[2],
+          //微信登录动画tab
+          WXlogin = document.getElementById("WXlogin");
+        //开局微信先动
+        WXlogin.style.left = "52px";
+        //一个切换输入框的方法
+        function active(a, b) {
+          a.content.className = "active pointer";
+          b.content.classList.remove("active");
+          loginSpan.style.left = `${a.id * 50}%`;
+          input[a.id].style.display = "block";
+          input[b.id].style.display = "none";
+        }
+        loginA.content.onclick = function () {
+          active(loginA, loginB);
+        };
+        loginB.content.onclick = function () {
+          active(loginB, loginA);
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <header>
+      <a href="main.html">
+        <img src="img/logo.png" alt="logo" />
+      </a>
+    </header>
+    <main>
+      <div class="left">
+        <div id="QRcode" class="pointer"></div>
+        <img src="img/wx-login.svg" alt="WXlogin" id="WXlogin" class="pointer" />
+        <ul id="login">
+          <li class="active pointer">密码登录</li>
+          <li class="pointer">验证码登录</li>
+          <span class="tabActive"></span>
+        </ul>
+        <div class="input" style="display: block;">
+          <input type="text" class="text" placeholder="请输入常用手机号/邮箱" autocomplete="off" />
+          <hr />
+          <br />
+          <input type="password" class="text" placeholder="请输入密码" />
+          <hr />
+          <br />
+          <a href="javascript:;">忘记密码？</a>
+          <br />
+          <input type="submit" class="submit pointer" value="登录" />
+        </div>
+        <div class="input" style="display: none;">
+          <input type="text" class="text" placeholder="请输入常用手机号" autocomplete="off" />
+          <hr />
+          <br />
+          <div class="yzmtab">
+            <input type="text" class="text" placeholder="请输入验证码" autocomplete="off" />
+            <a id="yzm" href="javascript:;">获取验证码</a>
+          </div>
+          <hr />
+          <br />
+          <input type="submit" class="submit pointer" value="登录" />
+        </div>
+      </div>
+      <div class="or"></div>
+      <div class="right">
+        <p>还没有账号：</p>
+        <a href="javascript:;">立即注册</a>
+        <p>使用以下账号直接登录：</p>
+        <div class="img">
+          <a id="img1" href="javascript:;"></a>
+          <a id="img2" href="javascript:;"></a>
+          <a id="img3" href="javascript:;"></a>
+          <a id="img4" href="javascript:;"></a>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
