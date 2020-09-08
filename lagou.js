@@ -1,4 +1,5 @@
 window.onload = function () {
+  //获取对应的DOM元素
   let city = document.getElementsByClassName("city")[0],
     citybox = document.getElementsByClassName("citybox")[0],
     cboxOverlay = document.getElementsByClassName("cboxOverlay")[0],
@@ -11,12 +12,19 @@ window.onload = function () {
     linkBox = document.getElementsByClassName("linkBox")[0],
     minaIMG = document.getElementById("minaIMG"),
     wechatIMG = document.getElementById("wechatIMG"),
+    //保存文档Y轴滚动的值
     scrollTop,
+    //判断是不是火狐浏览器
     isFF = /FireFox/i.test(navigator.userAgent),
+    //判断是不是谷歌浏览器
     isChrome = /Chrome/i.test(navigator.userAgent),
     swiperdiv = document.getElementsByClassName("swiper")[0],
     points = document.getElementsByClassName("point");
+  
+  //开启图片轮播
   swiper(swiperdiv, points, 840);
+  
+  //点击切换城市出现遮罩层
   city.onclick = function () {
     citybox.style.display = "flex";
     setTimeout(function () {
@@ -33,12 +41,14 @@ window.onload = function () {
       cbox.style.height = "528px";
     }, 100);
   };
+  
   //jobTips点击消失
   for (let i = 0; i < jobTips.length; i++) {
     jobTips[i].lastElementChild.onclick = function () {
       this.parentElement.style.display = "none";
     };
   }
+  
   //给所有chatMe添加鼠标移入、移出事件
   for (let i = 0; i < chatMe.length; i++) {
     let timer;
@@ -55,6 +65,7 @@ window.onload = function () {
       }, 150);
     };
   }
+  
   //图片父元素移入事件
   function onIMG(element) {
     let timer;
@@ -76,7 +87,8 @@ window.onload = function () {
   }
   onIMG(minaIMG);
   onIMG(wechatIMG);
-  //给展开按钮添加样式
+  
+  //给展开按钮添加效果
   linkBox.lastElementChild.onclick = function () {
     if (this.innerHTML == "展开<i></i>") {
       this.innerHTML = "收起<i></i>";
@@ -88,6 +100,7 @@ window.onload = function () {
       linkBox.firstElementChild.style.height = "30px";
     }
   };
+  
   //监听文档滚动事件，根据窗口滚动情况给对应DOM元素添加样式
   window.addEventListener("scroll", function () {
     scrollTop = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset;
@@ -106,6 +119,7 @@ window.onload = function () {
       backtop.style.display = "none";
     }
   });
+  
   //给backtop添加效果
   backtop.onclick = function () {
     //阻止浏览器默认方法
@@ -114,9 +128,9 @@ window.onload = function () {
     };
     //文档垂直滚动动画
     let timer = setTimeout(function () {
-      if (scrollTop > 0) {
+      if (scrollTop > 5) {
         window.requestAnimationFrame(arguments.callee);
-        window.scrollTo(0, scrollTop - 40);
+        window.scrollTo(0, scrollTop - scrollTop / 8);
         //动画播放时阻止文档鼠标滚动默认行为
         if (isFF) {
           document.body.addEventListener("DOMMouseScroll", fn, false);
