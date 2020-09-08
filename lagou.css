@@ -14,7 +14,6 @@ body {
   font-family: "微软雅黑";
   cursor: Default;
   font-size: 14px;
-  position: relative;
 }
 .center {
   display: flex;
@@ -59,6 +58,8 @@ img::before {
   height: 528px;
   overflow: hidden;
   transition: 0.3s ease;
+  position: relative;
+  top: 0px;
 }
 .cbox .cboxTitle {
   background: #00b38a;
@@ -74,6 +75,7 @@ img::before {
 }
 .cbox .center .cboxHeader,
 .cbox .center .cboxContent {
+  width: 100%;
   border-bottom: 1px dotted #e5e5e5;
 }
 .cbox .center .cboxContent {
@@ -148,7 +150,7 @@ nav a:hover {
 .white {
   background-color: white;
 }
-nav .center {
+nav > .center {
   align-items: center;
   justify-content: space-between;
 }

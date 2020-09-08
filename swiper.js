@@ -49,7 +49,7 @@ const swiper = function (parentElement, points, imgWidth) {
             //在动画进行的一瞬间，从图6跳到图6副本
             parentElement.style.left = ulLeft[0] + "px";
             //这时开启一个短暂一次性的定时器，用于播放从图6副本到图1的动画
-            setTimeout(() => {
+            setTimeout(function () {
               parentElement.style.transition = "left 0.3s";
               parentElement.style.left = ulLeft[1] + "px";
             }, 100);

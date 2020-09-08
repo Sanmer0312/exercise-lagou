@@ -13,6 +13,7 @@ window.onload = function () {
     wechatIMG = document.getElementById("wechatIMG"),
     scrollTop,
     isFF = /FireFox/i.test(navigator.userAgent),
+    isChrome = /Chrome/i.test(navigator.userAgent),
     swiperdiv = document.getElementsByClassName("swiper")[0],
     points = document.getElementsByClassName("point");
   swiper(swiperdiv, points, 840);
@@ -115,7 +116,7 @@ window.onload = function () {
     let timer = setTimeout(function () {
       if (scrollTop > 0) {
         window.requestAnimationFrame(arguments.callee);
-        window.scrollTo(0, scrollTop - scrollTop / 8);
+        window.scrollTo(0, scrollTop - 40);
         //动画播放时阻止文档鼠标滚动默认行为
         if (isFF) {
           document.body.addEventListener("DOMMouseScroll", fn, false);
@@ -125,11 +126,14 @@ window.onload = function () {
       } else {
         //动画播放完成，清除定时器
         clearTimeout(timer);
+        console.log("clear");
         //取消阻止文档鼠标滚动默认行为
         if (isFF) {
           document.body.removeEventListener("DOMMouseScroll", fn);
-        } else {
+        } else if (isChrome) {
           document.body.removeEventListener("mousewheel", fn);
+        } else {
+          document.body.removeEventListener("mousewheel", fn, true);
         }
         return;
       }
