@@ -1,5 +1,5 @@
 # exercise-lagou
-一个拉勾主页的静态页面练习，兼容到 IE11
+一个拉勾主页的静态页面练习，兼容到 IE11[在线预览](https://sanmer0312.github.io/exercise-lagou/main.html)
 
 ## 实现的功能
 
