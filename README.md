@@ -1,5 +1,5 @@
 # exercise-lagou
-一个拉勾主页的页面布局练习，兼容到 IE11，[在线预览](https://sanmer0312.github.io/exercise-lagou/main.html)
+一个拉勾主页的页面布局练习，兼容到 IE11，[在线预览](https://sanmer0312.github.io/exercise-lagou/main.html)，如果无法打开预览，原因是部分运营商DNS污染（域名指往不正确的IP地址），可以通过 修改hosts文件 / 修改DNS服务器 / 代理 的方式访问
 
 ## 实现
 
