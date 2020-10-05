@@ -1,7 +1,11 @@
 # exercise-lagou
 一个拉勾主页的页面布局练习，兼容到 IE11，[在线预览](https://sanmer0312.github.io/exercise-lagou/main.html)
 
-## 实现的功能
+## 实现
+
+使用html+css完成基本页面布局后，用JavaScript实现交互功能
+
+### 具体功能
 
 1.页面滚动nav始终在页面顶部。功能细节：
 
