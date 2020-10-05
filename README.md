@@ -3,7 +3,7 @@
 
 ## 实现
 
-使用html+css完成基本页面布局后，用JavaScript实现交互功能
+使用html+css完成基本页面布局后，用JavaScript实现交互效果
 
 ### 具体功能
 
